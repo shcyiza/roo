@@ -55,7 +55,7 @@ module Roo
         when :formula
           case onecell
           when String
-            %("#{onecell.gsub('"', '""')}") unless onecell.empty?
+            %("#{onecell.gsub('"', '""')}") unless onecell.url.nil?
           when Integer
             onecell.to_s
           when Float
