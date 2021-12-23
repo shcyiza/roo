@@ -55,7 +55,7 @@ module Roo
         when :formula
           case onecell
           when String
-            %("#{onecell.gsub('"', '""')}") unless onecell.url.nil?
+            %("#{onecell.gsub('"', '""')}") unless onecell.empty?
           when Integer
             onecell.to_s
           when Float
@@ -74,7 +74,7 @@ module Roo
         when :time
           integer_to_timestring(onecell)
         when :link
-          %("#{onecell.url.gsub('"', '""')}") unless onecell.empty?
+          %("#{onecell.url.gsub('"', '""')}") unless onecell.url.nil?
         else
           fail "unhandled celltype #{celltype(row, col, sheet)}"
         end || ""
